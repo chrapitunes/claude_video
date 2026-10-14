@@ -11,7 +11,7 @@ by `src/reel.js` on an HTML canvas, and every sound comes from `scripts/audio.py
 | Time | Scene | What's happening |
 |---|---|---|
 | 0.0–1.5 | 01 Ignition | Dot pops, squashes and explodes on the first beat into shockwave rings, radial lines and particles |
-| 1.25–3.6 | 02 Kinetic type | Circle reveal into coral; "I MAKE / THINGS / MOVE." lands on the beats with masked per-letter reveals and wobble; spinning badge |
+| 1.25–3.6 | 02 Kinetic type | Circle reveal into crimson; "I MAKE / THINGS / MOVE." lands on the beats with masked per-letter reveals and wobble; spinning badge |
 | 3.1–6.0 | 03 Rhythm | Diagonal double wipe; grid of shapes morphing between circle and square on a radial wave; difference-blended type; implosion |
 | 6.0–8.6 | 04 Dimension | 1,100-particle 3D sculpture morphing sphere → cube → torus, with orbits; the camera flies through it |
 | 8.55–10.6 | 05 Data | Swiss-style infographics: bars that grow and re-sort, a line chart drawing itself, progress rings, a counter |

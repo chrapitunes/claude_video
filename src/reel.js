@@ -9,9 +9,9 @@ const TAU = Math.PI * 2;
 
 const C = {
   bg: '#0B0B10', ink: '#F4F0E8', cream: '#F4F0E8',
-  coral: '#FF5B2E', violet: '#7A5CFF', lime: '#D7FF3B', cyan: '#38E1FF', pink: '#FF4FA3',
+  crimson: '#DC143C', violet: '#7A5CFF', lime: '#D7FF3B', cyan: '#38E1FF', pink: '#FF4FA3',
 };
-const PALETTE = [C.coral, C.violet, C.lime, C.cyan, C.pink];
+const PALETTE = [C.crimson, C.violet, C.lime, C.cyan, C.pink];
 const FONT = '"Inter Display", "Inter", sans-serif';
 const font = (w, s) => `${w} ${s}px ${FONT}`;
 
@@ -127,7 +127,7 @@ function sceneIgnition(ctx, t) {
   ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
   const cx = W / 2, cy = H / 2;
 
-  for (const [d, col, maxR] of [[0, C.coral, 720], [0.07, C.violet, 980], [0.14, C.lime, 1250]]) {
+  for (const [d, col, maxR] of [[0, C.crimson, 720], [0.07, C.violet, 980], [0.14, C.lime, 1250]]) {
     const p = prog(t, 0.5 + d, 1.35 + d);
     if (p > 0 && p < 1) {
       ctx.beginPath(); ctx.arc(cx, cy, E.outExpo(p) * maxR, 0, TAU);
@@ -169,12 +169,12 @@ function sceneIgnition(ctx, t) {
   }
 }
 
-// 02 — Kinetic type on coral.
+// 02 — Kinetic type on crimson.
 function sceneType(ctx, t) {
   const p = E.inOutCubic(prog(t, 1.25, 1.6));
   ctx.save();
   ctx.beginPath(); ctx.arc(W / 2, H / 2, p * Math.hypot(W, H) / 2 + 1, 0, TAU); ctx.clip();
-  ctx.fillStyle = C.coral; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = C.crimson; ctx.fillRect(0, 0, W, H);
 
   const z = 1 + 0.06 * prog(t, 1.4, 3.6);
   ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-W / 2, -H / 2);
@@ -204,7 +204,7 @@ function sceneType(ctx, t) {
     ctx.save(); ctx.translate(1530, 790); ctx.scale(lerp(0.7, 1, ca), lerp(0.7, 1, ca));
     ctx.fillStyle = C.bg; ctx.beginPath(); ctx.arc(0, 0, 175 * ca, 0, TAU); ctx.fill();
     circleText(ctx, 'MOTION • DESIGN • ANIMATION • TYPE • ', 0, 0, 135, -t * 0.9, 26, C.ink, ca);
-    asterisk(ctx, 0, 0, 46 * ca, t * 2, C.coral);
+    asterisk(ctx, 0, 0, 46 * ca, t * 2, C.crimson);
     ctx.restore();
   }
   ctx.restore();
@@ -347,7 +347,7 @@ function sceneData(ctx, t) {
   });
   hs.forEach((h, i) => {
     if (h <= 0.5) return;
-    ctx.fillStyle = i === 8 ? C.coral : C.bg;
+    ctx.fillStyle = i === 8 ? C.crimson : C.bg;
     ctx.beginPath(); ctx.roundRect(x0 + i * (bw + gap), base - h, bw, h, [10, 10, 0, 0]); ctx.fill();
   });
 
@@ -370,7 +370,7 @@ function sceneData(ctx, t) {
   }
 
   const rx = 1530, ry = 560;
-  [[230, 0.82, C.coral], [170, 0.64, C.violet], [110, 0.93, C.bg]].forEach(([r, v, col], k) => {
+  [[230, 0.82, C.crimson], [170, 0.64, C.violet], [110, 0.93, C.bg]].forEach(([r, v, col], k) => {
     const p = E.outExpo(prog(t, 8.8 + k * 0.12, 9.9 + k * 0.12));
     ctx.lineWidth = 40; ctx.lineCap = 'round';
     ctx.strokeStyle = 'rgba(11,11,16,0.07)';
@@ -398,7 +398,7 @@ function sceneData(ctx, t) {
 }
 
 // 06 — Fluid: screen-blended morphing blobs + echo typography.
-const BLOBS = [[C.coral, C.pink], [C.violet, C.cyan], [C.lime, C.cyan]];
+const BLOBS = [[C.crimson, C.pink], [C.violet, C.cyan], [C.lime, C.cyan]];
 function blobPath(ctx, cx, cy, R, t, k) {
   ctx.beginPath();
   for (let i = 0; i <= 120; i++) {
@@ -454,7 +454,7 @@ function sceneFluid(ctx, t) {
 }
 
 // 07 — Montage: rapid-fire recap cuts.
-const CUTS = [['TYPE', C.coral, C.bg], ['SHAPE', C.lime, C.bg], ['DEPTH', C.violet, C.ink], ['DATA', C.cream, C.bg], ['FLUID', C.cyan, C.bg], ['MOTION', C.pink, C.bg]];
+const CUTS = [['TYPE', C.crimson, C.bg], ['SHAPE', C.lime, C.bg], ['DEPTH', C.violet, C.ink], ['DATA', C.cream, C.bg], ['FLUID', C.cyan, C.bg], ['MOTION', C.pink, C.bg]];
 function sceneMontage(ctx, t) {
   const k = Math.min(CUTS.length - 1, Math.floor((t - 11.9) / 0.1));
   const u = ((t - 11.9) - k * 0.1) / 0.1;
@@ -516,7 +516,7 @@ function sceneIdentity(ctx, t) {
   const sw = prog(t, 13.0, 13.7);
   if (sw > 0 && sw < 1) {
     ctx.beginPath(); ctx.arc(cx, 540, E.outExpo(sw) * 1200, 0, TAU);
-    ctx.lineWidth = lerp(50, 0, sw); ctx.strokeStyle = C.coral; ctx.stroke();
+    ctx.lineWidth = lerp(50, 0, sw); ctx.strokeStyle = C.crimson; ctx.stroke();
   }
 
   // name with per-letter color-block wipes
@@ -545,7 +545,7 @@ function sceneIdentity(ctx, t) {
   asterisk(ctx, cx, 215, 58 * ap, t * 1.4, C.lime);
 
   const ul = E.outExpo(prog(t, 13.5, 14.1));
-  if (ul > 0) { ctx.fillStyle = C.coral; ctx.fillRect(cx - 520 * ul, 668, 1040 * ul, 7); }
+  if (ul > 0) { ctx.fillStyle = C.crimson; ctx.fillRect(cx - 520 * ul, 668, 1040 * ul, 7); }
 
   const st = E.outExpo(prog(t, 13.6, 14.2));
   if (st > 0) {
