@@ -1,0 +1,13 @@
+{
+  "name": "claude-showreel",
+  "private": true,
+  "description": "15-second motion graphics showreel rendered entirely from code",
+  "scripts": {
+    "build": "bash scripts/build.sh",
+    "stills": "node scripts/render.cjs --stills",
+    "preview": "npx serve src"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}

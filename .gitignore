@@ -1,0 +1,3 @@
+node_modules/
+out/*
+!out/claude_showreel_2026.mp4
