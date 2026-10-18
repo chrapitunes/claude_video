@@ -1,13 +1,21 @@
 {
   "name": "claude-showreel",
   "private": true,
-  "description": "15-second motion graphics showreel rendered entirely from code",
+  "description": "Motion graphics showreel and vertical Instagram reels rendered entirely from code",
   "scripts": {
     "build": "bash scripts/build.sh",
     "stills": "node scripts/render.cjs --stills",
-    "preview": "npx serve src"
+    "preview": "npx serve src",
+    "build:reel": "bash scripts/build_reel.sh",
+    "studio": "npx remotion studio"
   },
   "devDependencies": {
-    "playwright": "^1.56.1"
+    "playwright": "1.56.1"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.532",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.532"
   }
 }

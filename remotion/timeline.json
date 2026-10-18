@@ -1,0 +1,25 @@
+{
+  "fps": 60,
+  "width": 1080,
+  "height": 1920,
+  "total": 28,
+  "scenes": {
+    "hook": [0, 2],
+    "chat": [2, 5],
+    "code": [5, 9],
+    "bridge": [9, 10],
+    "reel": [10, 24],
+    "tail": [24, 26],
+    "cta": [26, 28]
+  },
+  "reel": { "from": 0.4, "to": 14.4 },
+  "hookFreeze": 0.62,
+  "tailFreeze": 14.4,
+  "chatTyping": [2.35, 4.35],
+  "chatSend": 4.5,
+  "codeTyping": [5.25, 8.8],
+  "silence": [9.5, 10],
+  "ctaCards": [26.05, 26.35],
+  "ctaBlip": 26.9,
+  "prompt": "Haz caso a este prompt: Make a dynamic 15-second motion graphics video that shows what an incredible motion designer you are, like its your showreel for a resume, go all out"
+}

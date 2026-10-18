@@ -2,7 +2,7 @@
 
 A 15-second, 1920×1080, 60 fps motion graphics showreel made entirely from code.
 It uses no video editor, stock footage or AI image generation. Every pixel is drawn
-by `src/reel.js` on an HTML canvas, and every sound comes from `scripts/audio.py`.
+by `src/reel-core.js` on an HTML canvas, and every sound comes from `scripts/audio.py`.
 
 **Final video:** [`out/claude_showreel_2026.mp4`](out/claude_showreel_2026.mp4)
 
@@ -31,4 +31,29 @@ Requirements: Node 18+, Playwright with Chromium, Python 3 + numpy, ffmpeg.
 npm run build                          # audio + render + mux -> out/claude_showreel_2026.mp4
 node scripts/render.cjs --stills 2,7.5 # render single frames to out/stills/
 npx serve src                          # real-time preview in the browser
+```
+
+## Vertical reel for Instagram (@martinketing.co)
+
+`remotion/` holds a 28-second, 1080×1920, 60 fps reel built with Remotion. It tells the story
+of how the showreel was made: the written request, the code being typed, and then the full
+showreel, drawn live by the same engine (`src/reel-core.js`) in a vertical layout.
+
+| Time (s) | Scene |
+|---|---|
+| 0–2 | Hook over a darkened, frozen showreel frame |
+| 2–5 | Chat: the original request typed letter by letter |
+| 5–9 | Editor: real excerpts of `src/reel-core.js` typed at speed (`scripts/extract-code.cjs`) |
+| 9–10 | Progress line, then half a second of silence |
+| 10–24 | The showreel (0.4–14.4 s of the original, at its original speed and with its own audio) |
+| 24–26 | "Sin After Effects. Sin Premiere." |
+| 26–28 | Call to action: follow + comment PROMPT |
+
+`ReelShowreelA` and `ReelShowreelB` differ only in the hook. Every time lives in seconds in
+`remotion/timeline.json`; both the Remotion scenes and `scripts/reel_audio.py` read it, so
+typing clicks and hits land on the matching frames.
+
+```bash
+npm run build:reel   # -> out/reel_showreel_A.mp4, out/reel_showreel_B.mp4
+npm run studio       # preview in Remotion Studio
 ```

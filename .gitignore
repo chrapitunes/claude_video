@@ -1,3 +1,6 @@
 node_modules/
 out/*
 !out/claude_showreel_2026.mp4
+!out/reel_showreel_A.mp4
+!out/reel_showreel_B.mp4
+public/reel_audio.wav

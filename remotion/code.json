@@ -1,0 +1,341 @@
+{
+ "file": "reel-core.js",
+ "lines": [
+  {
+   "n": 24,
+   "text": "const E = {"
+  },
+  {
+   "n": 25,
+   "text": "  outExpo: t => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t)),"
+  },
+  {
+   "n": 26,
+   "text": "  inExpo: t => (t <= 0 ? 0 : Math.pow(2, 10 * t - 10)),"
+  },
+  {
+   "n": 27,
+   "text": "  inOutExpo: t => (t <= 0 ? 0 : t >= 1 ? 1 : t < 0.5 ? Math.pow(2, 20 * t - 10) / 2 : (2 - Math.pow(2, -20 * t + 10)) / 2),"
+  },
+  {
+   "n": 28,
+   "text": "  outCubic: t => 1 - Math.pow(1 - t, 3),"
+  },
+  {
+   "n": 29,
+   "text": "  inOutCubic: t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),"
+  },
+  {
+   "n": 30,
+   "text": "  outBack: t => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); },"
+  },
+  {
+   "n": 31,
+   "text": "  outElastic: t => (t <= 0 ? 0 : t >= 1 ? 1 : Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * (TAU / 3)) + 1),"
+  },
+  {
+   "n": 32,
+   "text": "};"
+  },
+  {
+   "n": null,
+   "text": ""
+  },
+  {
+   "n": 47,
+   "text": "function impact(t) {"
+  },
+  {
+   "n": 48,
+   "text": "  let s = 0;"
+  },
+  {
+   "n": 49,
+   "text": "  for (const [it, a] of IMPACTS) { const d = t - it; if (d >= 0 && d < 0.6) s = Math.max(s, a * Math.exp(-d * 9)); }"
+  },
+  {
+   "n": 50,
+   "text": "  return s;"
+  },
+  {
+   "n": 51,
+   "text": "}"
+  },
+  {
+   "n": null,
+   "text": ""
+  },
+  {
+   "n": 54,
+   "text": "function revealText(ctx, text, x, y, size, weight, color, t, t0, o = {}) {"
+  },
+  {
+   "n": 55,
+   "text": "  const { stagger = 0.035, dur = 0.7, align = 'left', tracking = 0, ease = E.outExpo,"
+  },
+  {
+   "n": 56,
+   "text": "    out = null, outStagger = 0.025, outDur = 0.4, wobble = null, stroke = 0 } = o;"
+  },
+  {
+   "n": 57,
+   "text": "  ctx.save();"
+  },
+  {
+   "n": 58,
+   "text": "  ctx.font = font(weight, size);"
+  },
+  {
+   "n": 59,
+   "text": "  ctx.letterSpacing = '0px';"
+  },
+  {
+   "n": 60,
+   "text": "  ctx.textAlign = 'left';"
+  },
+  {
+   "n": 61,
+   "text": "  ctx.textBaseline = 'alphabetic';"
+  },
+  {
+   "n": 62,
+   "text": "  const chars = [...text];"
+  },
+  {
+   "n": 63,
+   "text": "  const ws = chars.map(c => ctx.measureText(c).width);"
+  },
+  {
+   "n": 64,
+   "text": "  const total = ws.reduce((a, b) => a + b, 0) + tracking * (chars.length - 1);"
+  },
+  {
+   "n": 65,
+   "text": "  const x0 = align === 'center' ? x - total / 2 : align === 'right' ? x - total : x;"
+  },
+  {
+   "n": 66,
+   "text": "  ctx.beginPath();"
+  },
+  {
+   "n": 67,
+   "text": "  ctx.rect(x0 - size, y - size * 0.92, total + size * 2, size * 1.0);"
+  },
+  {
+   "n": 68,
+   "text": "  ctx.clip();"
+  },
+  {
+   "n": 69,
+   "text": "  ctx.fillStyle = color; ctx.strokeStyle = color; ctx.lineWidth = stroke;"
+  },
+  {
+   "n": 70,
+   "text": "  let cx = x0;"
+  },
+  {
+   "n": 71,
+   "text": "  chars.forEach((ch, i) => {"
+  },
+  {
+   "n": 72,
+   "text": "    const p = ease(prog(t, t0 + i * stagger, t0 + i * stagger + dur));"
+  },
+  {
+   "n": 73,
+   "text": "    const q = out != null ? E.inExpo(prog(t, out + i * outStagger, out + i * outStagger + outDur)) : 0;"
+  },
+  {
+   "n": 74,
+   "text": "    if (p > 0 && q < 1) {"
+  },
+  {
+   "n": 75,
+   "text": "      let dy = (1 - p) * size - q * size, rot = 0;"
+  },
+  {
+   "n": 76,
+   "text": "      if (wobble) { const w = wobble(t, i); dy += w[0]; rot = w[1]; }"
+  },
+  {
+   "n": 77,
+   "text": "      ctx.save();"
+  },
+  {
+   "n": null,
+   "text": ""
+  },
+  {
+   "n": 162,
+   "text": "function sceneIgnition(ctx, t) {"
+  },
+  {
+   "n": 163,
+   "text": "  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);"
+  },
+  {
+   "n": 164,
+   "text": "  const cx = W / 2, cy = H / 2;"
+  },
+  {
+   "n": 165,
+   "text": ""
+  },
+  {
+   "n": 166,
+   "text": "  for (const [d, col, maxR] of [[0, C.crimson, 720], [0.07, C.violet, 980], [0.14, C.lime, 1250]]) {"
+  },
+  {
+   "n": 167,
+   "text": "    const p = prog(t, 0.5 + d, 1.35 + d);"
+  },
+  {
+   "n": 168,
+   "text": "    if (p > 0 && p < 1) {"
+  },
+  {
+   "n": 169,
+   "text": "      ctx.beginPath(); ctx.arc(cx, cy, E.outExpo(p) * maxR, 0, TAU);"
+  },
+  {
+   "n": 170,
+   "text": "      ctx.lineWidth = lerp(70, 0, E.outCubic(p)); ctx.strokeStyle = col; ctx.stroke();"
+  },
+  {
+   "n": 171,
+   "text": "    }"
+  },
+  {
+   "n": 172,
+   "text": "  }"
+  },
+  {
+   "n": 173,
+   "text": "  const lp = prog(t, 0.5, 1.2);"
+  },
+  {
+   "n": 174,
+   "text": "  if (lp > 0 && lp < 1) {"
+  },
+  {
+   "n": 175,
+   "text": "    ctx.lineCap = 'round'; ctx.lineWidth = 5;"
+  },
+  {
+   "n": 176,
+   "text": "    for (let i = 0; i < 48; i++) {"
+  },
+  {
+   "n": 177,
+   "text": "      const a = (i / 48) * TAU + t * 0.4;"
+  },
+  {
+   "n": 178,
+   "text": "      const r1 = 70 + E.outExpo(lp) * 950, r0 = 70 + E.outExpo(prog(t, 0.6, 1.25)) * 950;"
+  },
+  {
+   "n": 179,
+   "text": "      ctx.strokeStyle = PALETTE[i % 5];"
+  },
+  {
+   "n": 180,
+   "text": "      ctx.beginPath(); ctx.moveTo(cx + Math.cos(a) * r0, cy + Math.sin(a) * r0);"
+  },
+  {
+   "n": 181,
+   "text": "      ctx.lineTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1); ctx.stroke();"
+  },
+  {
+   "n": 182,
+   "text": "    }"
+  },
+  {
+   "n": null,
+   "text": ""
+  },
+  {
+   "n": 710,
+   "text": "function renderAt(t0, sub = SUBFRAMES, f = Math.round(t0 * FPS)) {"
+  },
+  {
+   "n": 711,
+   "text": "  for (let i = 0; i < sub; i++) {"
+  },
+  {
+   "n": 712,
+   "text": "    drawWorld(sctx, t0 + (i / sub) * (SHUTTER / FPS));"
+  },
+  {
+   "n": 713,
+   "text": "    actx.globalAlpha = 1 / (i + 1);"
+  },
+  {
+   "n": 714,
+   "text": "    actx.drawImage(scratch, 0, 0);"
+  },
+  {
+   "n": 715,
+   "text": "  }"
+  },
+  {
+   "n": 716,
+   "text": "  actx.globalAlpha = 1;"
+  },
+  {
+   "n": 717,
+   "text": "  octx.globalCompositeOperation = 'copy';"
+  },
+  {
+   "n": 718,
+   "text": "  octx.drawImage(acc, 0, 0);"
+  },
+  {
+   "n": 719,
+   "text": "  octx.globalCompositeOperation = 'source-over';"
+  },
+  {
+   "n": 720,
+   "text": "  const imp = impact(t0);"
+  },
+  {
+   "n": 721,
+   "text": "  if (imp > 0.03) chroma(Math.round(imp * 16));"
+  },
+  {
+   "n": 722,
+   "text": "  octx.drawImage(vignette, 0, 0);"
+  },
+  {
+   "n": 723,
+   "text": "  octx.save();"
+  },
+  {
+   "n": 724,
+   "text": "  octx.imageSmoothingEnabled = false;"
+  },
+  {
+   "n": 725,
+   "text": "  octx.globalCompositeOperation = 'overlay'; octx.globalAlpha = 0.07;"
+  },
+  {
+   "n": 726,
+   "text": "  octx.drawImage(grain[f % 4], 0, 0, W, H);"
+  },
+  {
+   "n": 727,
+   "text": "  octx.restore();"
+  },
+  {
+   "n": 728,
+   "text": "  hud(octx, t0, f);"
+  },
+  {
+   "n": 729,
+   "text": "}"
+  },
+  {
+   "n": 730,
+   "text": ""
+  }
+ ]
+}
