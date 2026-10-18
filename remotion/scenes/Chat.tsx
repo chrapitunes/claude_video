@@ -1,5 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AmbientCanvas } from '../components/AmbientCanvas';
 import { COLORS, FONTS, Schedule, Scene, T, sec } from '../theme';
 
 // 0:02 — a plain dark chat. The real request from this project is typed
@@ -19,7 +20,8 @@ export const Chat: React.FC<{ scene: Scene; cues: Schedule['cues'] }> = ({ scene
   const enter = spring({ frame, fps, config: { damping: 200 } });
 
   return (
-    <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 30%, #17171f, ${COLORS.bg} 70%)` }}>
+    <AbsoluteFill>
+      <AmbientCanvas start={scene.start} />
       <div
         style={{
           position: 'absolute', left: 60, right: 60, top: 490, bottom: 300,

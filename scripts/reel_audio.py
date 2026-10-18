@@ -64,9 +64,15 @@ def render(S, T):
         tone = np.sin(2 * np.pi * rng.uniform(1800, 2600) * t)
         return (n * 0.6 + tone * 0.25) * np.exp(-t * 320)
 
-    # hook: low hit
-    add(A.kick(big=True), 0.0, 1.0, bus='hit')
-    add(A.impact(1.6), 0.0, 0.6, bus='hit')
+    # hook: a low hit on the first strong word, then one per camera punch;
+    # a whoosh rises into the last punch (the burst into the torus)
+    punches = cue['hookPunches']
+    add(A.kick(big=True), punches[0][0], 1.0, bus='hit')
+    add(A.impact(1.6), punches[0][0], 0.6, bus='hit')
+    for tp, strength in punches[1:]:
+        add(A.kick(big=strength >= 1), tp, 0.8 * strength, bus='hit')
+        add(A.impact(0.9), tp, 0.35 * strength, bus='hit')
+    add(A.whoosh(0.4), punches[-1][0] - 0.4, 0.45)
 
     # low drone under the build-up, gone before the silence
     silence = sc['bridge']['silence']

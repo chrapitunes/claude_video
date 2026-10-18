@@ -42,9 +42,9 @@ the code being typed, then the full showreel, drawn live by the same engine
 
 | Scene | Voice line | Picture |
 |---|---|---|
-| hook | 01A / 01B | Darkened, frozen showreel frame |
-| chat | 02 "Le pedí esto. Por escrito." | The original request typed letter by letter |
-| code | 03 "¡Y Claude escribió todo el código solo!" | Real excerpts of `src/reel-core.js` typed at speed |
+| hook | 01A / 01B | The showreel's 3D particle sculpture, live: it pulses on every word, and camera punches (shake, RGB split, flash, hit) land on the strong words, turning it into a cube and then bursting it into a torus (`hookPunches` in `timeline.json`) |
+| chat | 02 "Le pedí esto. Por escrito." | The original request typed letter by letter, over a breathing dot grid |
+| code | 03 "¡Y Claude escribió todo el código solo!" | Real excerpts of `src/reel-core.js` typed at speed, over the same grid |
 | bridge | 04 "Y el código se volvió esto." (whispered) | Progress line, then half a second of silence |
 | reel | none | The showreel (0.4–14.4 s of the original) at full volume |
 | tail | 05 "¡Sin After Effects! ¡Sin Premiere!" | The showreel's last frame, darkened |

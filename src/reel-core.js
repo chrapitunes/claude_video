@@ -302,16 +302,19 @@ function createReel(out, opts = {}) {
     return pts;
   })();
   const RGB = { cyan: hexRgb(C.cyan), violet: hexRgb(C.violet), lime: hexRgb(C.lime), ink: hexRgb(C.ink) };
-  function sceneDepth(ctx, t) {
+  // The particle sculpture: bursts out at burstAt, turns into a cube at
+  // cubeAt and a torus at torusAt; the camera flies through it at flyAt
+  // (null = never). scale multiplies the radius (for beat pulses).
+  function drawSculpture(ctx, t, o) {
     const g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, 1100);
     g.addColorStop(0, '#1C1640'); g.addColorStop(1, '#050508');
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
 
-    const burstE = E.outBack(prog(t, 6.0, 6.7));
-    const R = 390 * burstE;
-    const yaw = (t - 6) * 0.9 + 0.6, pitch = 0.35 + 0.18 * Math.sin(t * 1.3);
+    const burstE = E.outBack(prog(t, o.burstAt, o.burstAt + 0.7));
+    const R = 390 * burstE * (o.scale ?? 1);
+    const yaw = (t - o.burstAt) * 0.9 + 0.6, pitch = 0.35 + 0.18 * Math.sin(t * 1.3);
     const cyw = Math.cos(yaw), syw = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
-    const f = 1000, D = 1250 - E.inExpo(prog(t, 8.1, 8.58)) * 1300;
+    const f = 1000, D = 1250 - (o.flyAt == null ? 0 : E.inExpo(prog(t, o.flyAt, o.flyAt + 0.48)) * 1300);
     const proj = (x, y, z) => {
       const x1 = x * cyw - z * syw, z1 = x * syw + z * cyw;
       const y1 = y * cp - z1 * sp, z2 = y * sp + z1 * cp;
@@ -343,8 +346,8 @@ function createReel(out, opts = {}) {
 
     ctx.globalCompositeOperation = 'lighter';
     for (const pt of P3) {
-      const m1 = E.inOutCubic(prog(t, 6.9 + pt.d, 7.35 + pt.d));
-      const m2 = E.inOutCubic(prog(t, 7.6 + pt.d, 8.05 + pt.d));
+      const m1 = E.inOutCubic(prog(t, o.cubeAt + pt.d, o.cubeAt + 0.45 + pt.d));
+      const m2 = E.inOutCubic(prog(t, o.torusAt + pt.d, o.torusAt + 0.45 + pt.d));
       const p = [0, 1, 2].map(k => lerp(lerp(pt.sphere[k], pt.cube[k], m1), pt.torus[k], m2) * R);
       const pr = proj(p[0], p[1], p[2]);
       if (!pr) continue;
@@ -355,7 +358,9 @@ function createReel(out, opts = {}) {
       ctx.beginPath(); ctx.arc(pr[0], pr[1], sz, 0, TAU); ctx.fill();
     }
     ctx.globalCompositeOperation = 'source-over';
-
+  }
+  function sceneDepth(ctx, t) {
+    drawSculpture(ctx, t, { burstAt: 6.0, cubeAt: 6.9, torusAt: 7.6, flyAt: 8.1 });
     const l = L.depth;
     revealText(ctx, 'DIMENSION', l.x, l.y, l.size, 200, C.ink, t, 6.3, { tracking: l.tracking, stagger: 0.03, out: 8.0 });
 
@@ -655,20 +660,43 @@ function createReel(out, opts = {}) {
     x.fillStyle = g; x.fillRect(0, 0, W, H); return c;
   })();
 
+  // Camera shake for an impact strength imp (0..1).
+  function shake(ctx, t, imp) {
+    if (imp <= 0.002) return;
+    const a = imp * 26;
+    ctx.translate(W / 2 + Math.sin(t * 97.3) * a, H / 2 + Math.cos(t * 83.1 + 1.3) * a);
+    ctx.rotate(Math.sin(t * 61.7) * imp * 0.012);
+    ctx.scale(1 + imp * 0.05, 1 + imp * 0.05);
+    ctx.translate(-W / 2, -H / 2);
+  }
+
   function drawWorld(ctx, t) {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
-    const imp = impact(t);
     ctx.save();
-    if (imp > 0.002) {
-      const a = imp * 26;
-      ctx.translate(W / 2 + Math.sin(t * 97.3) * a, H / 2 + Math.cos(t * 83.1 + 1.3) * a);
-      ctx.rotate(Math.sin(t * 61.7) * imp * 0.012);
-      ctx.scale(1 + imp * 0.05, 1 + imp * 0.05);
-      ctx.translate(-W / 2, -H / 2);
-    }
+    shake(ctx, t, impact(t));
     for (const [a, b, fn] of SCENES) if (t >= a && t < b) fn(ctx, t);
     ctx.restore();
+  }
+
+  // Slow living background for UI scenes: a dot grid breathing on a radial
+  // wave, tinted with the palette.
+  function drawAmbient(ctx, t) {
+    ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+    const g = ctx.createRadialGradient(W / 2, H * 0.3, 0, W / 2, H * 0.3, H * 0.7);
+    g.addColorStop(0, 'rgba(122,92,255,0.24)'); g.addColorStop(1, 'rgba(122,92,255,0)');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    const step = 72, cx = W / 2, cy = H * 0.45;
+    for (let y = step / 2; y < H; y += step) {
+      for (let x = step / 2; x < W; x += step) {
+        const d = Math.hypot(x - cx, y - cy);
+        const v = 0.5 + 0.5 * Math.sin(t * 2.4 - d / 120);
+        ctx.fillStyle = PALETTE[Math.floor(d / 260 + t * 0.6) % 5];
+        ctx.globalAlpha = 0.14 + 0.4 * v;
+        ctx.beginPath(); ctx.arc(x, y, 2 + 4.5 * v, 0, TAU); ctx.fill();
+      }
+    }
+    ctx.globalAlpha = 1;
   }
 
   function hud(ctx, t, f) {
@@ -705,11 +733,11 @@ function createReel(out, opts = {}) {
     octx.globalCompositeOperation = 'source-over';
   }
 
-  // Render the frame at time t0 (seconds). f only picks the grain plate and
-  // the timecode frame digits.
-  function renderAt(t0, sub = SUBFRAMES, f = Math.round(t0 * FPS)) {
+  // Motion-blurred frame at t0 of draw(ctx, t), with the finishing passes
+  // (shake + chromatic aberration from imp(t), vignette, grain).
+  function compose(t0, draw, imp, sub, f) {
     for (let i = 0; i < sub; i++) {
-      drawWorld(sctx, t0 + (i / sub) * (SHUTTER / FPS));
+      draw(sctx, t0 + (i / sub) * (SHUTTER / FPS));
       actx.globalAlpha = 1 / (i + 1);
       actx.drawImage(scratch, 0, 0);
     }
@@ -717,21 +745,45 @@ function createReel(out, opts = {}) {
     octx.globalCompositeOperation = 'copy';
     octx.drawImage(acc, 0, 0);
     octx.globalCompositeOperation = 'source-over';
-    const imp = impact(t0);
-    if (imp > 0.03) chroma(Math.round(imp * 16));
+    const i0 = imp(t0);
+    if (i0 > 0.03) chroma(Math.round(i0 * 16));
     octx.drawImage(vignette, 0, 0);
     octx.save();
     octx.imageSmoothingEnabled = false;
     octx.globalCompositeOperation = 'overlay'; octx.globalAlpha = 0.07;
     octx.drawImage(grain[f % 4], 0, 0, W, H);
     octx.restore();
+  }
+
+  // Render the showreel frame at time t0 (seconds). f only picks the grain
+  // plate and the timecode frame digits.
+  function renderAt(t0, sub = SUBFRAMES, f = Math.round(t0 * FPS)) {
+    compose(t0, drawWorld, impact, sub, f);
     hud(octx, t0, f);
+  }
+
+  // Render any drawing with the showreel's finishing. impacts: [[t, strength]].
+  function renderWith(t0, draw, { impacts = [], sub = SUBFRAMES } = {}) {
+    const imp = t => {
+      let s = 0;
+      for (const [it, a] of impacts) { const d = t - it; if (d >= 0 && d < 0.6) s = Math.max(s, a * Math.exp(-d * 9)); }
+      return s;
+    };
+    const wrapped = (ctx, t) => {
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+      ctx.save(); shake(ctx, t, imp(t)); draw(ctx, t); ctx.restore();
+    };
+    compose(t0, wrapped, imp, sub, Math.round(t0 * FPS));
   }
 
   return {
     W, H, FPS, DURATION, FRAMES: Math.round(FPS * DURATION),
     renderFrame: (f, sub = SUBFRAMES) => renderAt(f / FPS, sub, f),
     renderAt,
+    renderWith,
+    sculpture: drawSculpture,
+    ambient: drawAmbient,
   };
 }
 

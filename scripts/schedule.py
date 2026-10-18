@@ -56,9 +56,14 @@ def build(version, T=None, V=None):
     cues = {}
     for name, (scene, *times) in T['cues'].items():
         cues[name] = [round(scenes[scene]['start'] + t, 3) for t in times]
-    line, word = T['ctaBlipWord']
-    w = next(w for w in V[line]['words'] if w['text'].strip('*.,!?¡¿') == word)
-    cues['ctaBlip'] = [round(scenes['cta']['start'] + w['start'], 3)]
+    def word_at(line, word, scene):
+        w = next(w for w in V[line]['words'] if w['text'].strip('.,:!?¡¿') == word)
+        return round(scenes[scene]['start'] + w['start'], 3)
+
+    cues['ctaBlip'] = [word_at(*T['ctaBlipWord'], 'cta')]
+    hook_line = '01' + version
+    cues['hookPunches'] = [[word_at(hook_line, w, 'hook'), s] for w, s in T['hookPunches'][version]]
+    cues['hookWords'] = [round(scenes['hook']['start'] + w['start'], 3) for w in V[hook_line]['words']]
 
     return {'version': version, 'fps': fps, 'frames': frame, 'duration': frame / fps,
             'scenes': scenes, 'voice': voice, 'subtitles': subs, 'cues': cues}

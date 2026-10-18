@@ -1,5 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AmbientCanvas } from '../components/AmbientCanvas';
 import { COLORS, FONTS, Schedule, Scene } from '../theme';
 import code from '../code.json';
 
@@ -45,7 +46,8 @@ export const Code: React.FC<{ scene: Scene; cues: Schedule['cues'] }> = ({ scene
   const enter = spring({ frame, fps, config: { damping: 200 } });
 
   return (
-    <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 30%, #15151d, ${COLORS.bg} 70%)` }}>
+    <AbsoluteFill>
+      <AmbientCanvas start={scene.start} />
       <div
         style={{
           position: 'absolute', left: 40, right: 40, top: 500, bottom: 300,

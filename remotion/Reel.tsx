@@ -18,7 +18,7 @@ export const Reel: React.FC<ReelProps> = ({ version }) => {
   const seq = (k: keyof typeof sc) => ({ from: sc[k].from, durationInFrames: sc[k].frames });
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
-      <Sequence {...seq('hook')} name="Hook"><Hook scene={sc.hook} /></Sequence>
+      <Sequence {...seq('hook')} name="Hook"><Hook scene={sc.hook} cues={S.cues} /></Sequence>
       <Sequence {...seq('chat')} name="Chat"><Chat scene={sc.chat} cues={S.cues} /></Sequence>
       <Sequence {...seq('code')} name="Code"><Code scene={sc.code} cues={S.cues} /></Sequence>
       <Sequence {...seq('bridge')} name="Bridge"><Bridge scene={sc.bridge} /></Sequence>

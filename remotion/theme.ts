@@ -16,7 +16,7 @@ export type Schedule = {
   duration: number;
   scenes: Record<'hook' | 'chat' | 'code' | 'bridge' | 'reel' | 'tail' | 'cta', Scene>;
   subtitles: SubtitlePage[];
-  cues: Record<'chatTyping' | 'chatSend' | 'codeTyping' | 'ctaCards' | 'ctaBlip', number[]>;
+  cues: Record<'chatTyping' | 'chatSend' | 'codeTyping' | 'ctaCards' | 'ctaBlip' | 'hookWords', number[]> & { hookPunches: number[][] };
 };
 
 export const sec = (s: number) => Math.round(s * FPS);

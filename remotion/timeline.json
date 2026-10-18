@@ -3,24 +3,104 @@
   "width": 1080,
   "height": 1920,
   "scenes": [
-    { "id": "hook", "base": 2, "voice": "01" },
-    { "id": "chat", "base": 3, "voice": "02" },
-    { "id": "code", "base": 4, "voice": "03" },
-    { "id": "bridge", "base": 1, "voice": "04", "silenceAfter": 0.5 },
-    { "id": "reel", "base": 14 },
-    { "id": "tail", "base": 2, "voice": "05" },
-    { "id": "cta", "base": 2, "voice": "06" }
+    {
+      "id": "hook",
+      "base": 2,
+      "voice": "01"
+    },
+    {
+      "id": "chat",
+      "base": 3,
+      "voice": "02"
+    },
+    {
+      "id": "code",
+      "base": 4,
+      "voice": "03"
+    },
+    {
+      "id": "bridge",
+      "base": 1,
+      "voice": "04",
+      "silenceAfter": 0.5
+    },
+    {
+      "id": "reel",
+      "base": 14
+    },
+    {
+      "id": "tail",
+      "base": 2,
+      "voice": "05"
+    },
+    {
+      "id": "cta",
+      "base": 2,
+      "voice": "06"
+    }
   ],
   "voicePad": 0.2,
-  "reel": { "from": 0.4, "to": 14.4 },
+  "reel": {
+    "from": 0.4,
+    "to": 14.4
+  },
   "hookFreeze": 0.62,
   "tailFreeze": 14.4,
   "cues": {
-    "chatTyping": ["chat", 0.35, 2.35],
-    "chatSend": ["chat", 2.5],
-    "codeTyping": ["code", 0.25, 3.8],
-    "ctaCards": ["cta", 0.05, 0.35]
+    "chatTyping": [
+      "chat",
+      0.35,
+      2.35
+    ],
+    "chatSend": [
+      "chat",
+      2.5
+    ],
+    "codeTyping": [
+      "code",
+      0.25,
+      3.8
+    ],
+    "ctaCards": [
+      "cta",
+      0.05,
+      0.35
+    ]
   },
-  "ctaBlipWord": ["06", "PROMPT"],
+  "ctaBlipWord": [
+    "06",
+    "PROMPT"
+  ],
+  "hookPunches": {
+    "_": "Camera punches on the hook's strong words: [word, strength]. The sculpture turns into a cube on the 2nd and a torus on the 3rd.",
+    "A": [
+      [
+        "Ningún",
+        1.0
+      ],
+      [
+        "edición",
+        0.6
+      ],
+      [
+        "Claude",
+        1.0
+      ]
+    ],
+    "B": [
+      [
+        "Editores",
+        1.0
+      ],
+      [
+        "graphics",
+        0.6
+      ],
+      [
+        "hablar",
+        1.0
+      ]
+    ]
+  },
   "prompt": "Haz caso a este prompt: Make a dynamic 15-second motion graphics video that shows what an incredible motion designer you are, like its your showreel for a resume, go all out"
 }
