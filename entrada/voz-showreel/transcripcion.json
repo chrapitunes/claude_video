@@ -1,0 +1,299 @@
+{
+ "model": "medium",
+ "words": [
+  {
+   "word": "Ningún",
+   "start": 0.0,
+   "end": 0.7,
+   "p": 0.843
+  },
+  {
+   "word": "programa",
+   "start": 0.7,
+   "end": 1.08,
+   "p": 0.998
+  },
+  {
+   "word": "de",
+   "start": 1.08,
+   "end": 1.32,
+   "p": 0.999
+  },
+  {
+   "word": "edición.",
+   "start": 1.32,
+   "end": 1.84,
+   "p": 0.997
+  },
+  {
+   "word": "Este",
+   "start": 2.28,
+   "end": 2.44,
+   "p": 0.871
+  },
+  {
+   "word": "video",
+   "start": 2.44,
+   "end": 2.76,
+   "p": 0.949
+  },
+  {
+   "word": "lo",
+   "start": 2.76,
+   "end": 2.96,
+   "p": 0.994
+  },
+  {
+   "word": "hizo",
+   "start": 2.96,
+   "end": 3.18,
+   "p": 0.997
+  },
+  {
+   "word": "Claude.",
+   "start": 3.18,
+   "end": 3.96,
+   "p": 0.97
+  },
+  {
+   "word": "Editores",
+   "start": 4.16,
+   "end": 4.56,
+   "p": 0.805
+  },
+  {
+   "word": "de",
+   "start": 4.56,
+   "end": 4.72,
+   "p": 0.997
+  },
+  {
+   "word": "Motion",
+   "start": 4.72,
+   "end": 5.0,
+   "p": 0.941
+  },
+  {
+   "word": "Graphics,",
+   "start": 5.0,
+   "end": 5.58,
+   "p": 0.927
+  },
+  {
+   "word": "tenemos",
+   "start": 5.98,
+   "end": 6.24,
+   "p": 0.906
+  },
+  {
+   "word": "que",
+   "start": 6.24,
+   "end": 6.46,
+   "p": 0.995
+  },
+  {
+   "word": "hablar.",
+   "start": 6.46,
+   "end": 6.78,
+   "p": 0.999
+  },
+  {
+   "word": "Le",
+   "start": 7.14,
+   "end": 7.34,
+   "p": 0.991
+  },
+  {
+   "word": "pedí",
+   "start": 7.34,
+   "end": 7.6,
+   "p": 0.998
+  },
+  {
+   "word": "esto,",
+   "start": 7.6,
+   "end": 7.9,
+   "p": 0.988
+  },
+  {
+   "word": "por",
+   "start": 8.2,
+   "end": 8.22,
+   "p": 0.993
+  },
+  {
+   "word": "escrito.",
+   "start": 8.22,
+   "end": 8.52,
+   "p": 0.998
+  },
+  {
+   "word": "Y",
+   "start": 8.9,
+   "end": 9.12,
+   "p": 0.907
+  },
+  {
+   "word": "Claude",
+   "start": 9.12,
+   "end": 9.44,
+   "p": 0.999
+  },
+  {
+   "word": "escribió",
+   "start": 9.44,
+   "end": 10.06,
+   "p": 0.998
+  },
+  {
+   "word": "todo",
+   "start": 10.06,
+   "end": 10.34,
+   "p": 0.997
+  },
+  {
+   "word": "el",
+   "start": 10.34,
+   "end": 10.56,
+   "p": 0.999
+  },
+  {
+   "word": "código",
+   "start": 10.56,
+   "end": 10.86,
+   "p": 0.993
+  },
+  {
+   "word": "solo.",
+   "start": 10.86,
+   "end": 11.28,
+   "p": 0.971
+  },
+  {
+   "word": "Y",
+   "start": 11.72,
+   "end": 11.84,
+   "p": 0.874
+  },
+  {
+   "word": "el",
+   "start": 11.84,
+   "end": 12.08,
+   "p": 0.996
+  },
+  {
+   "word": "código",
+   "start": 12.08,
+   "end": 12.36,
+   "p": 0.992
+  },
+  {
+   "word": "se",
+   "start": 12.36,
+   "end": 12.6,
+   "p": 0.994
+  },
+  {
+   "word": "volvió",
+   "start": 12.6,
+   "end": 13.02,
+   "p": 0.997
+  },
+  {
+   "word": "esto.",
+   "start": 13.02,
+   "end": 13.36,
+   "p": 0.98
+  },
+  {
+   "word": "Sin",
+   "start": 13.78,
+   "end": 14.0,
+   "p": 0.71
+  },
+  {
+   "word": "After",
+   "start": 14.0,
+   "end": 14.4,
+   "p": 0.926
+  },
+  {
+   "word": "Effects,",
+   "start": 14.4,
+   "end": 14.68,
+   "p": 0.991
+  },
+  {
+   "word": "sin",
+   "start": 15.0,
+   "end": 15.2,
+   "p": 0.993
+  },
+  {
+   "word": "Premiere.",
+   "start": 15.2,
+   "end": 15.62,
+   "p": 0.595
+  },
+  {
+   "word": "¿Quieres",
+   "start": 16.0,
+   "end": 16.26,
+   "p": 0.987
+  },
+  {
+   "word": "el",
+   "start": 16.26,
+   "end": 16.4,
+   "p": 0.997
+  },
+  {
+   "word": "prompt",
+   "start": 16.4,
+   "end": 16.58,
+   "p": 0.943
+  },
+  {
+   "word": "exacto?",
+   "start": 16.58,
+   "end": 17.1,
+   "p": 0.994
+  },
+  {
+   "word": "Comenta",
+   "start": 17.32,
+   "end": 17.58,
+   "p": 0.993
+  },
+  {
+   "word": "prompt",
+   "start": 17.58,
+   "end": 17.94,
+   "p": 0.768
+  },
+  {
+   "word": "y",
+   "start": 17.94,
+   "end": 18.2,
+   "p": 0.958
+  },
+  {
+   "word": "te",
+   "start": 18.2,
+   "end": 18.3,
+   "p": 0.996
+  },
+  {
+   "word": "lo",
+   "start": 18.3,
+   "end": 18.42,
+   "p": 1.0
+  },
+  {
+   "word": "mando.",
+   "start": 18.42,
+   "end": 18.66,
+   "p": 0.997
+  }
+ ]
+}

@@ -3,14 +3,21 @@
     python3 scripts/transcribe_voice.py <audio> <out.json> [model]
 """
 import json
+import subprocess
 import sys
+
+import numpy as np
 
 from faster_whisper import WhisperModel
 
 audio, out = sys.argv[1], sys.argv[2]
 model_name = sys.argv[3] if len(sys.argv) > 3 else 'medium'
 model = WhisperModel(model_name, device='cpu', compute_type='int8')
-segments, info = model.transcribe(audio, language='es', word_timestamps=True, vad_filter=False, beam_size=5)
+# Decode with ffmpeg (16 kHz mono float) instead of PyAV.
+pcm = subprocess.run(['ffmpeg', '-v', 'error', '-i', audio, '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'],
+                     check=True, capture_output=True).stdout
+samples = np.frombuffer(pcm, dtype=np.float32)
+segments, info = model.transcribe(samples, language='es', word_timestamps=True, vad_filter=False, beam_size=5)
 words = []
 for seg in segments:
     for w in seg.words:

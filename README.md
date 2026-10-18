@@ -35,23 +35,35 @@ npx serve src                          # real-time preview in the browser
 
 ## Vertical reel for Instagram (@martinketing.co)
 
-`remotion/` holds a 28-second, 1080×1920, 60 fps reel built with Remotion. It tells the story
-of how the showreel was made: the written request, the code being typed, and then the full
-showreel, drawn live by the same engine (`src/reel-core.js`) in a vertical layout.
+`remotion/` holds a vertical reel (1080×1920, 60 fps, about 32–33 s) built with Remotion and
+narrated by an ElevenLabs voice-over. It tells how the showreel was made: the written request,
+the code being typed, then the full showreel, drawn live by the same engine
+(`src/reel-core.js`) in a vertical layout.
 
-| Time (s) | Scene |
-|---|---|
-| 0–2 | Hook over a darkened, frozen showreel frame |
-| 2–5 | Chat: the original request typed letter by letter |
-| 5–9 | Editor: real excerpts of `src/reel-core.js` typed at speed (`scripts/extract-code.cjs`) |
-| 9–10 | Progress line, then half a second of silence |
-| 10–24 | The showreel (0.4–14.4 s of the original, at its original speed and with its own audio) |
-| 24–26 | "Sin After Effects. Sin Premiere." |
-| 26–28 | Call to action: follow + comment PROMPT |
+| Scene | Voice line | Picture |
+|---|---|---|
+| hook | 01A / 01B | Darkened, frozen showreel frame |
+| chat | 02 "Le pedí esto. Por escrito." | The original request typed letter by letter |
+| code | 03 "¡Y Claude escribió todo el código solo!" | Real excerpts of `src/reel-core.js` typed at speed |
+| bridge | 04 "Y el código se volvió esto." (whispered) | Progress line, then half a second of silence |
+| reel | none | The showreel (0.4–14.4 s of the original) at full volume |
+| tail | 05 "¡Sin After Effects! ¡Sin Premiere!" | The showreel's last frame, darkened |
+| cta | 06 "¿Quieres el prompt exacto? Comenta PROMPT y te lo mando." | Follow + comment PROMPT |
 
-`ReelShowreelA` and `ReelShowreelB` differ only in the hook. Every time lives in seconds in
-`remotion/timeline.json`; both the Remotion scenes and `scripts/reel_audio.py` read it, so
-typing clicks and hits land on the matching frames.
+`ReelShowreelA` and `ReelShowreelB` differ only in the opening line. Each scene lasts its
+base length from `remotion/timeline.json` or its voice line plus a short pad, whichever is
+longer, so the voice is never cut. Subtitles are word by word, from the Whisper timings.
+
+Pipeline:
+
+1. `scripts/transcribe_voice.py`: local Whisper (faster-whisper) with word timestamps →
+   `entrada/voz-showreel/transcripcion.json`.
+2. `scripts/prepare_voice.py`: checks every line against the script, cuts it at the pauses,
+   normalizes loudness → `public/voz/*.wav`, `remotion/voice.json`.
+3. `scripts/schedule.py`: scene timing, voice placement, subtitles and cues per version →
+   `remotion/schedule.json`.
+4. `scripts/reel_audio.py`: sound effects, voice and the showreel mix, with the background
+   ducked under the voice → `public/reel_audio_{A,B}.wav`.
 
 ```bash
 npm run build:reel   # -> out/reel_showreel_A.mp4, out/reel_showreel_B.mp4

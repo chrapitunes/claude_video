@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
-import { COLORS, FONTS, T, sec } from '../theme';
+import { COLORS, FONTS, Schedule, Scene, sec } from '../theme';
 
 const Asterisk: React.FC<{ size: number; rotate: number }> = ({ size, rotate }) => (
   <div style={{ width: size * 2, height: size * 2, position: 'relative', transform: `rotate(${rotate}rad)` }}>
@@ -31,16 +31,16 @@ const Step: React.FC<{ n: number; at: number; children: React.ReactNode }> = ({ 
 };
 
 // 0:26 — closing card: follow + comment PROMPT.
-export const Cta: React.FC = () => {
+export const Cta: React.FC<{ scene: Scene; cues: Schedule['cues'] }> = ({ scene, cues }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const start = T.scenes.cta[0];
-  const [c1, c2] = T.ctaCards.map(c => c - start);
-  const blip = spring({ frame: frame - sec(T.ctaBlip - start), fps, config: { damping: 10, stiffness: 220 } });
+  const start = scene.start;
+  const [c1, c2] = cues.ctaCards.map(c => c - start);
+  const blip = spring({ frame: frame - sec(cues.ctaBlip[0] - start), fps, config: { damping: 10, stiffness: 220 } });
   const pulse = 1 + 0.12 * Math.sin(Math.PI * Math.min(1, blip));
   const big = { fontFamily: FONTS.display, fontWeight: 900, fontSize: 68, lineHeight: 1, color: COLORS.white, letterSpacing: '-0.02em' };
   return (
-    <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 40%, #1a1a24, ${COLORS.bg} 70%)`, alignItems: 'center', justifyContent: 'center', gap: 36 }}>
+    <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 40%, #1a1a24, ${COLORS.bg} 70%)`, alignItems: 'center', justifyContent: 'center', gap: 36, paddingTop: 260 }}>
       <div style={{ marginBottom: 30 }}>
         <Asterisk size={62} rotate={(frame / fps) * 1.4} />
       </div>
@@ -53,7 +53,6 @@ export const Cta: React.FC = () => {
           Comenta
           <span style={{ display: 'inline-block', background: COLORS.accent, color: COLORS.white, padding: '8px 18px 12px', borderRadius: 16, transform: `scale(${pulse})` }}>PROMPT</span>
         </div>
-        <div style={{ fontFamily: FONTS.ui, fontSize: 38, color: COLORS.muted }}>y te mando el prompt exacto</div>
       </Step>
     </AbsoluteFill>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
-import { BigText } from '../components/BigText';
-import { COLORS, FONTS, T } from '../theme';
+import { COLORS, FONTS, Schedule, Scene } from '../theme';
 import code from '../code.json';
 
 const LINE_H = 37;
@@ -26,11 +25,11 @@ function highlight(text: string) {
 }
 
 // 0:05 — a dark editor typing real excerpts of src/reel-core.js, sped up.
-export const Code: React.FC = () => {
+export const Code: React.FC<{ scene: Scene; cues: Schedule['cues'] }> = ({ scene, cues }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const t = T.scenes.code[0] + frame / fps;
-  const [s, e] = T.codeTyping;
+  const t = scene.start + frame / fps;
+  const [s, e] = cues.codeTyping;
   const x = Math.min(1, Math.max(0, (t - s) / (e - s)));
   const total = code.lines.reduce((n, l) => n + l.text.length + 1, 0);
   let budget = Math.floor(total * x * x);
@@ -47,10 +46,6 @@ export const Code: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 30%, #15151d, ${COLORS.bg} 70%)` }}>
-      <AbsoluteFill style={{ top: 250, height: 210, alignItems: 'center' }}>
-        <BigText text="Claude escribe el *código*" size={86} maxWidth={760} />
-      </AbsoluteFill>
-
       <div
         style={{
           position: 'absolute', left: 40, right: 40, top: 500, bottom: 300,

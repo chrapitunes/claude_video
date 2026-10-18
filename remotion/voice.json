@@ -1,0 +1,387 @@
+{
+ "01A": {
+  "file": "voz/01A.wav",
+  "duration": 3.778,
+  "words": [
+   {
+    "text": "¡Ningún",
+    "start": 0.0,
+    "end": 0.7,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "programa",
+    "start": 0.7,
+    "end": 1.08,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "de",
+    "start": 1.08,
+    "end": 1.32,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "edición!",
+    "start": 1.32,
+    "end": 1.84,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "Este",
+    "start": 2.28,
+    "end": 2.44,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "video",
+    "start": 2.44,
+    "end": 2.76,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "lo",
+    "start": 2.76,
+    "end": 2.96,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "hizo",
+    "start": 2.96,
+    "end": 3.18,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "Claude.",
+    "start": 3.18,
+    "end": 3.778,
+    "accent": true,
+    "chunk": 1
+   }
+  ]
+ },
+ "01B": {
+  "file": "voz/01B.wav",
+  "duration": 2.909,
+  "words": [
+   {
+    "text": "Editores",
+    "start": 0.165,
+    "end": 0.565,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "de",
+    "start": 0.565,
+    "end": 0.725,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "motion",
+    "start": 0.725,
+    "end": 1.005,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "graphics:",
+    "start": 1.005,
+    "end": 1.585,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "tenemos",
+    "start": 1.985,
+    "end": 2.245,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "que",
+    "start": 2.245,
+    "end": 2.465,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "hablar.",
+    "start": 2.465,
+    "end": 2.785,
+    "accent": true,
+    "chunk": 1
+   }
+  ]
+ },
+ "02": {
+  "file": "voz/02.wav",
+  "duration": 1.594,
+  "words": [
+   {
+    "text": "Le",
+    "start": 0.081,
+    "end": 0.281,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "pedí",
+    "start": 0.281,
+    "end": 0.541,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "esto.",
+    "start": 0.541,
+    "end": 0.841,
+    "accent": true,
+    "chunk": 0
+   },
+   {
+    "text": "Por",
+    "start": 1.141,
+    "end": 1.161,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "escrito.",
+    "start": 1.161,
+    "end": 1.461,
+    "accent": false,
+    "chunk": 1
+   }
+  ]
+ },
+ "03": {
+  "file": "voz/03.wav",
+  "duration": 2.644,
+  "words": [
+   {
+    "text": "¡Y",
+    "start": 0.127,
+    "end": 0.347,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "Claude",
+    "start": 0.347,
+    "end": 0.667,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "escribió",
+    "start": 0.667,
+    "end": 1.287,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "todo",
+    "start": 1.287,
+    "end": 1.567,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "el",
+    "start": 1.567,
+    "end": 1.787,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "código",
+    "start": 1.787,
+    "end": 2.087,
+    "accent": true,
+    "chunk": 1
+   },
+   {
+    "text": "solo!",
+    "start": 2.087,
+    "end": 2.507,
+    "accent": false,
+    "chunk": 1
+   }
+  ]
+ },
+ "04": {
+  "file": "voz/04.wav",
+  "duration": 1.778,
+  "words": [
+   {
+    "text": "Y",
+    "start": 0.123,
+    "end": 0.243,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "el",
+    "start": 0.243,
+    "end": 0.483,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "código",
+    "start": 0.483,
+    "end": 0.763,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "se",
+    "start": 0.763,
+    "end": 1.003,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "volvió",
+    "start": 1.003,
+    "end": 1.423,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "esto.",
+    "start": 1.423,
+    "end": 1.763,
+    "accent": true,
+    "chunk": 0
+   }
+  ]
+ },
+ "05": {
+  "file": "voz/05.wav",
+  "duration": 2.284,
+  "words": [
+   {
+    "text": "¡Sin",
+    "start": 0.255,
+    "end": 0.475,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "After",
+    "start": 0.475,
+    "end": 0.875,
+    "accent": true,
+    "chunk": 0
+   },
+   {
+    "text": "Effects!",
+    "start": 0.875,
+    "end": 1.155,
+    "accent": true,
+    "chunk": 0
+   },
+   {
+    "text": "¡Sin",
+    "start": 1.475,
+    "end": 1.675,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "Premiere!",
+    "start": 1.675,
+    "end": 2.095,
+    "accent": true,
+    "chunk": 1
+   }
+  ]
+ },
+ "06": {
+  "file": "voz/06.wav",
+  "duration": 2.909,
+  "words": [
+   {
+    "text": "¿Quieres",
+    "start": 0.075,
+    "end": 0.335,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "el",
+    "start": 0.335,
+    "end": 0.475,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "prompt",
+    "start": 0.475,
+    "end": 0.655,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "exacto?",
+    "start": 0.655,
+    "end": 1.175,
+    "accent": false,
+    "chunk": 0
+   },
+   {
+    "text": "Comenta",
+    "start": 1.395,
+    "end": 1.655,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "PROMPT",
+    "start": 1.655,
+    "end": 2.015,
+    "accent": true,
+    "chunk": 1
+   },
+   {
+    "text": "y",
+    "start": 2.015,
+    "end": 2.275,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "te",
+    "start": 2.275,
+    "end": 2.375,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "lo",
+    "start": 2.375,
+    "end": 2.495,
+    "accent": false,
+    "chunk": 1
+   },
+   {
+    "text": "mando.",
+    "start": 2.495,
+    "end": 2.735,
+    "accent": false,
+    "chunk": 1
+   }
+  ]
+ }
+}

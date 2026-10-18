@@ -1,0 +1,772 @@
+{
+ "A": {
+  "version": "A",
+  "fps": 60,
+  "frames": 1973,
+  "duration": 32.88333333333333,
+  "scenes": {
+   "hook": {
+    "start": 0.0,
+    "duration": 3.9833333333333334,
+    "from": 0,
+    "frames": 239
+   },
+   "chat": {
+    "start": 3.9833333333333334,
+    "duration": 3.0,
+    "from": 239,
+    "frames": 180
+   },
+   "code": {
+    "start": 6.983333333333333,
+    "duration": 4.0,
+    "from": 419,
+    "frames": 240
+   },
+   "bridge": {
+    "start": 10.983333333333333,
+    "duration": 2.283333333333333,
+    "from": 659,
+    "frames": 137,
+    "silence": [
+     12.766666666666667,
+     13.266666666666667
+    ]
+   },
+   "reel": {
+    "start": 13.266666666666667,
+    "duration": 14.0,
+    "from": 796,
+    "frames": 840
+   },
+   "tail": {
+    "start": 27.266666666666666,
+    "duration": 2.5,
+    "from": 1636,
+    "frames": 150
+   },
+   "cta": {
+    "start": 29.766666666666666,
+    "duration": 3.1166666666666667,
+    "from": 1786,
+    "frames": 187
+   }
+  },
+  "voice": [
+   {
+    "id": "01A",
+    "file": "voz/01A.wav",
+    "start": 0.0,
+    "duration": 3.778
+   },
+   {
+    "id": "02",
+    "file": "voz/02.wav",
+    "start": 3.9833333333333334,
+    "duration": 1.594
+   },
+   {
+    "id": "03",
+    "file": "voz/03.wav",
+    "start": 6.983333333333333,
+    "duration": 2.644
+   },
+   {
+    "id": "04",
+    "file": "voz/04.wav",
+    "start": 10.983333333333333,
+    "duration": 1.778
+   },
+   {
+    "id": "05",
+    "file": "voz/05.wav",
+    "start": 27.266666666666666,
+    "duration": 2.284
+   },
+   {
+    "id": "06",
+    "file": "voz/06.wav",
+    "start": 29.766666666666666,
+    "duration": 2.909
+   }
+  ],
+  "subtitles": [
+   {
+    "start": 0.0,
+    "end": 2.19,
+    "words": [
+     {
+      "text": "¡Ningún",
+      "accent": false,
+      "at": 0.0
+     },
+     {
+      "text": "programa",
+      "accent": false,
+      "at": 0.7
+     },
+     {
+      "text": "de",
+      "accent": false,
+      "at": 1.08
+     },
+     {
+      "text": "edición!",
+      "accent": false,
+      "at": 1.32
+     }
+    ]
+   },
+   {
+    "start": 2.28,
+    "end": 3.983,
+    "words": [
+     {
+      "text": "Este",
+      "accent": false,
+      "at": 2.28
+     },
+     {
+      "text": "video",
+      "accent": false,
+      "at": 2.44
+     },
+     {
+      "text": "lo",
+      "accent": false,
+      "at": 2.76
+     },
+     {
+      "text": "hizo",
+      "accent": false,
+      "at": 2.96
+     },
+     {
+      "text": "Claude.",
+      "accent": true,
+      "at": 3.18
+     }
+    ]
+   },
+   {
+    "start": 4.064,
+    "end": 5.124,
+    "words": [
+     {
+      "text": "Le",
+      "accent": false,
+      "at": 4.064
+     },
+     {
+      "text": "pedí",
+      "accent": false,
+      "at": 4.264
+     },
+     {
+      "text": "esto.",
+      "accent": true,
+      "at": 4.524
+     }
+    ]
+   },
+   {
+    "start": 5.124,
+    "end": 5.794,
+    "words": [
+     {
+      "text": "Por",
+      "accent": false,
+      "at": 5.124
+     },
+     {
+      "text": "escrito.",
+      "accent": false,
+      "at": 5.144
+     }
+    ]
+   },
+   {
+    "start": 7.11,
+    "end": 8.55,
+    "words": [
+     {
+      "text": "¡Y",
+      "accent": false,
+      "at": 7.11
+     },
+     {
+      "text": "Claude",
+      "accent": false,
+      "at": 7.33
+     },
+     {
+      "text": "escribió",
+      "accent": false,
+      "at": 7.65
+     },
+     {
+      "text": "todo",
+      "accent": false,
+      "at": 8.27
+     }
+    ]
+   },
+   {
+    "start": 8.55,
+    "end": 9.84,
+    "words": [
+     {
+      "text": "el",
+      "accent": false,
+      "at": 8.55
+     },
+     {
+      "text": "código",
+      "accent": true,
+      "at": 8.77
+     },
+     {
+      "text": "solo!",
+      "accent": false,
+      "at": 9.07
+     }
+    ]
+   },
+   {
+    "start": 11.106,
+    "end": 13.096,
+    "words": [
+     {
+      "text": "Y",
+      "accent": false,
+      "at": 11.106
+     },
+     {
+      "text": "el",
+      "accent": false,
+      "at": 11.226
+     },
+     {
+      "text": "código",
+      "accent": false,
+      "at": 11.466
+     },
+     {
+      "text": "se",
+      "accent": false,
+      "at": 11.746
+     },
+     {
+      "text": "volvió",
+      "accent": false,
+      "at": 11.986
+     },
+     {
+      "text": "esto.",
+      "accent": true,
+      "at": 12.406
+     }
+    ]
+   },
+   {
+    "start": 27.522,
+    "end": 28.742,
+    "words": [
+     {
+      "text": "¡Sin",
+      "accent": false,
+      "at": 27.522
+     },
+     {
+      "text": "After",
+      "accent": true,
+      "at": 27.742
+     },
+     {
+      "text": "Effects!",
+      "accent": true,
+      "at": 28.142
+     }
+    ]
+   },
+   {
+    "start": 28.742,
+    "end": 29.712,
+    "words": [
+     {
+      "text": "¡Sin",
+      "accent": false,
+      "at": 28.742
+     },
+     {
+      "text": "Premiere!",
+      "accent": true,
+      "at": 28.942
+     }
+    ]
+   },
+   {
+    "start": 29.842,
+    "end": 31.162,
+    "words": [
+     {
+      "text": "¿Quieres",
+      "accent": false,
+      "at": 29.842
+     },
+     {
+      "text": "el",
+      "accent": false,
+      "at": 30.102
+     },
+     {
+      "text": "prompt",
+      "accent": false,
+      "at": 30.242
+     },
+     {
+      "text": "exacto?",
+      "accent": false,
+      "at": 30.422
+     }
+    ]
+   },
+   {
+    "start": 31.162,
+    "end": 32.852,
+    "words": [
+     {
+      "text": "Comenta",
+      "accent": false,
+      "at": 31.162
+     },
+     {
+      "text": "PROMPT",
+      "accent": true,
+      "at": 31.422
+     },
+     {
+      "text": "y",
+      "accent": false,
+      "at": 31.782
+     },
+     {
+      "text": "te",
+      "accent": false,
+      "at": 32.042
+     },
+     {
+      "text": "lo",
+      "accent": false,
+      "at": 32.142
+     },
+     {
+      "text": "mando.",
+      "accent": false,
+      "at": 32.262
+     }
+    ]
+   }
+  ],
+  "cues": {
+   "chatTyping": [
+    4.333,
+    6.333
+   ],
+   "chatSend": [
+    6.483
+   ],
+   "codeTyping": [
+    7.233,
+    10.783
+   ],
+   "ctaCards": [
+    29.817,
+    30.117
+   ],
+   "ctaBlip": [
+    31.422
+   ]
+  }
+ },
+ "B": {
+  "version": "B",
+  "fps": 60,
+  "frames": 1921,
+  "duration": 32.016666666666666,
+  "scenes": {
+   "hook": {
+    "start": 0.0,
+    "duration": 3.1166666666666667,
+    "from": 0,
+    "frames": 187
+   },
+   "chat": {
+    "start": 3.1166666666666667,
+    "duration": 3.0,
+    "from": 187,
+    "frames": 180
+   },
+   "code": {
+    "start": 6.116666666666666,
+    "duration": 4.0,
+    "from": 367,
+    "frames": 240
+   },
+   "bridge": {
+    "start": 10.116666666666667,
+    "duration": 2.283333333333333,
+    "from": 607,
+    "frames": 137,
+    "silence": [
+     11.9,
+     12.4
+    ]
+   },
+   "reel": {
+    "start": 12.4,
+    "duration": 14.0,
+    "from": 744,
+    "frames": 840
+   },
+   "tail": {
+    "start": 26.4,
+    "duration": 2.5,
+    "from": 1584,
+    "frames": 150
+   },
+   "cta": {
+    "start": 28.9,
+    "duration": 3.1166666666666667,
+    "from": 1734,
+    "frames": 187
+   }
+  },
+  "voice": [
+   {
+    "id": "01B",
+    "file": "voz/01B.wav",
+    "start": 0.0,
+    "duration": 2.909
+   },
+   {
+    "id": "02",
+    "file": "voz/02.wav",
+    "start": 3.1166666666666667,
+    "duration": 1.594
+   },
+   {
+    "id": "03",
+    "file": "voz/03.wav",
+    "start": 6.116666666666666,
+    "duration": 2.644
+   },
+   {
+    "id": "04",
+    "file": "voz/04.wav",
+    "start": 10.116666666666667,
+    "duration": 1.778
+   },
+   {
+    "id": "05",
+    "file": "voz/05.wav",
+    "start": 26.4,
+    "duration": 2.284
+   },
+   {
+    "id": "06",
+    "file": "voz/06.wav",
+    "start": 28.9,
+    "duration": 2.909
+   }
+  ],
+  "subtitles": [
+   {
+    "start": 0.165,
+    "end": 1.935,
+    "words": [
+     {
+      "text": "Editores",
+      "accent": false,
+      "at": 0.165
+     },
+     {
+      "text": "de",
+      "accent": false,
+      "at": 0.565
+     },
+     {
+      "text": "motion",
+      "accent": false,
+      "at": 0.725
+     },
+     {
+      "text": "graphics:",
+      "accent": false,
+      "at": 1.005
+     }
+    ]
+   },
+   {
+    "start": 1.985,
+    "end": 3.117,
+    "words": [
+     {
+      "text": "tenemos",
+      "accent": false,
+      "at": 1.985
+     },
+     {
+      "text": "que",
+      "accent": false,
+      "at": 2.245
+     },
+     {
+      "text": "hablar.",
+      "accent": true,
+      "at": 2.465
+     }
+    ]
+   },
+   {
+    "start": 3.198,
+    "end": 4.258,
+    "words": [
+     {
+      "text": "Le",
+      "accent": false,
+      "at": 3.198
+     },
+     {
+      "text": "pedí",
+      "accent": false,
+      "at": 3.398
+     },
+     {
+      "text": "esto.",
+      "accent": true,
+      "at": 3.658
+     }
+    ]
+   },
+   {
+    "start": 4.258,
+    "end": 4.928,
+    "words": [
+     {
+      "text": "Por",
+      "accent": false,
+      "at": 4.258
+     },
+     {
+      "text": "escrito.",
+      "accent": false,
+      "at": 4.278
+     }
+    ]
+   },
+   {
+    "start": 6.244,
+    "end": 7.684,
+    "words": [
+     {
+      "text": "¡Y",
+      "accent": false,
+      "at": 6.244
+     },
+     {
+      "text": "Claude",
+      "accent": false,
+      "at": 6.464
+     },
+     {
+      "text": "escribió",
+      "accent": false,
+      "at": 6.784
+     },
+     {
+      "text": "todo",
+      "accent": false,
+      "at": 7.404
+     }
+    ]
+   },
+   {
+    "start": 7.684,
+    "end": 8.974,
+    "words": [
+     {
+      "text": "el",
+      "accent": false,
+      "at": 7.684
+     },
+     {
+      "text": "código",
+      "accent": true,
+      "at": 7.904
+     },
+     {
+      "text": "solo!",
+      "accent": false,
+      "at": 8.204
+     }
+    ]
+   },
+   {
+    "start": 10.24,
+    "end": 12.23,
+    "words": [
+     {
+      "text": "Y",
+      "accent": false,
+      "at": 10.24
+     },
+     {
+      "text": "el",
+      "accent": false,
+      "at": 10.36
+     },
+     {
+      "text": "código",
+      "accent": false,
+      "at": 10.6
+     },
+     {
+      "text": "se",
+      "accent": false,
+      "at": 10.88
+     },
+     {
+      "text": "volvió",
+      "accent": false,
+      "at": 11.12
+     },
+     {
+      "text": "esto.",
+      "accent": true,
+      "at": 11.54
+     }
+    ]
+   },
+   {
+    "start": 26.655,
+    "end": 27.875,
+    "words": [
+     {
+      "text": "¡Sin",
+      "accent": false,
+      "at": 26.655
+     },
+     {
+      "text": "After",
+      "accent": true,
+      "at": 26.875
+     },
+     {
+      "text": "Effects!",
+      "accent": true,
+      "at": 27.275
+     }
+    ]
+   },
+   {
+    "start": 27.875,
+    "end": 28.845,
+    "words": [
+     {
+      "text": "¡Sin",
+      "accent": false,
+      "at": 27.875
+     },
+     {
+      "text": "Premiere!",
+      "accent": true,
+      "at": 28.075
+     }
+    ]
+   },
+   {
+    "start": 28.975,
+    "end": 30.295,
+    "words": [
+     {
+      "text": "¿Quieres",
+      "accent": false,
+      "at": 28.975
+     },
+     {
+      "text": "el",
+      "accent": false,
+      "at": 29.235
+     },
+     {
+      "text": "prompt",
+      "accent": false,
+      "at": 29.375
+     },
+     {
+      "text": "exacto?",
+      "accent": false,
+      "at": 29.555
+     }
+    ]
+   },
+   {
+    "start": 30.295,
+    "end": 31.985,
+    "words": [
+     {
+      "text": "Comenta",
+      "accent": false,
+      "at": 30.295
+     },
+     {
+      "text": "PROMPT",
+      "accent": true,
+      "at": 30.555
+     },
+     {
+      "text": "y",
+      "accent": false,
+      "at": 30.915
+     },
+     {
+      "text": "te",
+      "accent": false,
+      "at": 31.175
+     },
+     {
+      "text": "lo",
+      "accent": false,
+      "at": 31.275
+     },
+     {
+      "text": "mando.",
+      "accent": false,
+      "at": 31.395
+     }
+    ]
+   }
+  ],
+  "cues": {
+   "chatTyping": [
+    3.467,
+    5.467
+   ],
+   "chatSend": [
+    5.617
+   ],
+   "codeTyping": [
+    6.367,
+    9.917
+   ],
+   "ctaCards": [
+    28.95,
+    29.25
+   ],
+   "ctaBlip": [
+    30.555
+   ]
+  }
+ }
+}

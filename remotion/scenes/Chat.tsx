@@ -1,32 +1,28 @@
 import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
-import { BigText } from '../components/BigText';
-import { COLORS, FONTS, T, sec } from '../theme';
+import { COLORS, FONTS, Schedule, Scene, T, sec } from '../theme';
 
 // 0:02 — a plain dark chat. The real request from this project is typed
 // letter by letter, then sent.
-export const Chat: React.FC = () => {
+export const Chat: React.FC<{ scene: Scene; cues: Schedule['cues'] }> = ({ scene, cues }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const start = T.scenes.chat[0];
+  const start = scene.start;
   const t = start + frame / fps;
-  const [s, e] = T.chatTyping;
+  const [s, e] = cues.chatTyping;
   const prompt = T.prompt;
   const shown = Math.floor(prompt.length * Math.min(1, Math.max(0, (t - s) / (e - s))));
-  const sent = t >= T.chatSend;
-  const sendP = spring({ frame: frame - sec(T.chatSend - start), fps, config: { damping: 200 } });
+  const send = cues.chatSend[0];
+  const sent = t >= send;
+  const sendP = spring({ frame: frame - sec(send - start), fps, config: { damping: 200 } });
   const caretOn = Math.floor(frame / sec(0.5)) % 2 === 0 || (t > s && t < e);
   const enter = spring({ frame, fps, config: { damping: 200 } });
 
   return (
     <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 30%, #17171f, ${COLORS.bg} 70%)` }}>
-      <AbsoluteFill style={{ top: 270, height: 150, alignItems: 'center' }}>
-        <BigText text="Le pedí *esto*" size={96} />
-      </AbsoluteFill>
-
       <div
         style={{
-          position: 'absolute', left: 60, right: 60, top: 470, bottom: 300,
+          position: 'absolute', left: 60, right: 60, top: 490, bottom: 300,
           background: COLORS.panel, border: `2px solid ${COLORS.line}`, borderRadius: 40,
           display: 'flex', flexDirection: 'column', overflow: 'hidden',
           opacity: enter, transform: `translateY(${interpolate(enter, [0, 1], [40, 0])}px)`,
@@ -51,7 +47,7 @@ export const Chat: React.FC = () => {
             </div>
           )}
           {sent && (
-            <div style={{ alignSelf: 'flex-start', display: 'flex', gap: 12, padding: '8px 4px', opacity: interpolate(frame, [sec(T.chatSend - start + 0.15), sec(T.chatSend - start + 0.3)], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }) }}>
+            <div style={{ alignSelf: 'flex-start', display: 'flex', gap: 12, padding: '8px 4px', opacity: interpolate(frame, [sec(send - start + 0.15), sec(send - start + 0.3)], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }) }}>
               {[0, 1, 2].map(i => (
                 <div key={i} style={{ width: 18, height: 18, borderRadius: 9, background: COLORS.muted, opacity: 0.35 + 0.65 * Math.max(0, Math.sin((frame / fps) * 9 - i * 0.9)) }} />
               ))}
