@@ -4,3 +4,4 @@ out/*
 !out/reel_showreel_A.mp4
 !out/reel_showreel_B.mp4
 public/reel_audio.wav
+__pycache__/
